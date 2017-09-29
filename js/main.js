@@ -229,9 +229,9 @@ var myMap = function() {
 	// Takes all the filters off
 	function resetFilter() {
 		filter = {
-			followers: 0,
-			practice_area: 0,
-			from: 0
+
+			practice_area: 0
+
 		}
 	}
 
