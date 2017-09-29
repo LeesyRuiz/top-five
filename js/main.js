@@ -16,7 +16,7 @@ var myMap = function() {
 		zoom: 5,
 		center: new google.maps.LatLng(38.810821,-95.053711),
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		// disableDefaultUI: true
+		disableDefaultUI: true
 	}
 
 	/*
@@ -80,9 +80,7 @@ var myMap = function() {
 			// 	'<br>practice_area: ', school.practice_area, '</div></div>'].join('');
 
 
-			var content = ['<div class="grid">', school.name,
-			'Avvo Rating: ', school.avvo_rating, '<br>Client Rating: ', school.client_rating,
-			'<br>practice_area: ', school.blurb, '</div>'].join('');
+			var content = ['<div id="modal" class="grid">', school.name,'</div>'].join('');
 
 
 
@@ -291,6 +289,3 @@ $(function() {
 	});
 
 });
-
-
-

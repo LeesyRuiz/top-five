@@ -11,16 +11,16 @@
   width: 30vw;
   margin-left: 4em;
   margin-top: 4em;
-  height: 680px;
+  height: 600px;
  }
 
 select {
   box-sizing: border-box;
    /*line-height: 3em;*/
-   height: 50px;
+   height: 60px;
    background-color: white;
    border: 0 !important;
-   -webkit-appearance: none;
+    -webkit-appearance: none;
    -moz-appearance: none;
 }
 
@@ -38,7 +38,7 @@ select {
 }
 
   h2 {
-       font-size: calc(1em + 2.5vh);
+       font-size: calc(1em + 2vh);
       font-family: Futura, sans-serif;
       /*padding-top: 10%;*/
        -webkit-font-smoothing: antialiased;
@@ -48,12 +48,15 @@ select {
 }
 
  h3 {
+   font-family: -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+   font-weight:  normal;
+
    font-size: calc(.5em + 1vh);
-  /*font-family: Futura, sans-serif;*/
-  padding-top: 5%;
+   padding-top: 5%;
    -webkit-font-smoothing: antialiased;
-    line-height: 1.3em;
+    line-height: 1.6em;
   text-align: left;
+
 }
 
 #pa {
@@ -69,8 +72,13 @@ select {
 
 
 
-.grid {
-
+#modal {
+  font-family: Futura, sans-serif;
+  text-align: center;
+  vertical-align: middle;
+   font-weight: bold;
+  padding: 3%;
+  font-size: 1.1em;
 }
 
 .grid .item {
