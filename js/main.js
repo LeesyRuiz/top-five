@@ -29,26 +29,26 @@ var myMap = function() {
 	markerList = [];
 
 	/*
-		Load markers onto the Google Map from a provided array or demo personData (data.js)
-		@param array personList [optional] (list of people to load)
+		Load markers onto the Google Map from a provided array or demo schoolData (data.js)
+		@param array  schoolList [optional] (list of schools to load)
 		@return undefined
 	*/
-	function loadMarkers(personList) {
+	function loadMarkers( schoolList) {
 
-		// optional argument of person
-		var people = ( typeof personList !== 'undefined' ) ? personList : personData;
+		// optional argument of school
+		var schools = ( typeof  schoolList !== 'undefined' ) ?  schoolList : schoolData;
 
 		var j = 1; // for lorempixel
 
-		for( i=0; i < people.length; i++ ) {
-			var person = people[i];
+		for( i=0; i < schools.length; i++ ) {
+			var school = schools[i];
 
 			// if its already on the map, dont put it there again
-			if( markerList.indexOf(person.id) !== -1 ) continue;
+			if( markerList.indexOf(school.id) !== -1 ) continue;
 
-			var lat = person.lat,
-				lng = person.lng,
-				markerId = person.id;
+			var lat = school.lat,
+				lng = school.lng,
+				markerId = school.id;
 
 			var infoWindow = new google.maps.InfoWindow({
 				maxWidth: 400
@@ -56,18 +56,18 @@ var myMap = function() {
 
 			var marker = new google.maps.Marker({
 				position: new google.maps.LatLng( lat, lng ),
-				title: person.name,
+				title: school.name,
 				markerId: markerId,
 				icon: markerLocation,
 				map: map
 			});
 
 			markers[markerId] = marker;
-			markerList.push(person.id);
+			markerList.push(school.id);
 
- 			var content = ['<div class="iw"><div class="iw-text"><strong>', person.name,
-				'</strong><br>Age: ', person.age, '<br>Followers: ', person.followers,
-				'<br>College: ', person.college, '</div></div>'].join('');
+ 			var content = ['<div class="pop-up"><div class="iw-text"><strong>', school.name,
+				'</strong><br>Age: ', school.age, '<br>Followers: ', school.followers,
+				'<br>practice_area: ', school.practice_area, '</div></div>'].join('');
 
 
 			google.maps.event.addListener(marker, 'click', (function (marker, content) {
@@ -84,7 +84,7 @@ var myMap = function() {
 		@param int id (id of the marker element)
 		@return undefined
 	*/
-	function removePersonMarker(id) {
+	function removeschoolMarker(id) {
 		if( markers[id] ) {
 			markers[id].setMap(null);
 			loc = markerList.indexOf(id);
@@ -102,7 +102,7 @@ var myMap = function() {
 	// default all filters off
 	var filter = {
 		followers: 0,
-		college: 0,
+		practice_area: 0,
 		from: 0
 	}
 	var filterMap;
@@ -161,7 +161,7 @@ var myMap = function() {
 			}
 		}
 
-		if( filter[filterType] === 0 ) results.push( personData );
+		if( filter[filterType] === 0 ) results.push( schoolData );
 
 		/*
 			if there is 1 array (1 filter applied) set it,
@@ -181,58 +181,56 @@ var myMap = function() {
 		The keys in this need to be mapped 1-to-1 with the keys in the filter variable.
 	*/
 	filterMap = {
-		college: function( value ) {
-			return filterByString('college', value);
+		practice_area: function( value ) {
+			return filterByString('practice_area', value);
 		},
-
-
 	}
 
 	/*
 		Filters marker data based upon a string match
 		@param string dataProperty (the key that will be filtered upon)
 		@param string value (selected filter value)
-		@return array (people that made it through the filter)
+		@return array (schools that made it through the filter)
 	*/
 	function filterByString( dataProperty, value ) {
-		var people = [];
+		var schools = [];
 
-		for( var i=0; i < personData.length; i++ ) {
-			var person = personData[i];
-			if( person[dataProperty] == value ) {
-				people.push( person );
+		for( var i=0; i < schoolData.length; i++ ) {
+			var school = schoolData[i];
+			if( school[dataProperty] == value ) {
+				schools.push( school );
 			} else {
-				removePersonMarker( person.id );
+				removeschoolMarker( school.id );
 			}
 		}
-		return people;
+		return schools;
 	}
 
 	/*
 		Filters out integers that are under the provided value
 		@param string dataProperty (the key that will be filtered upon)
 		@param int value (selected filter value)
-		@return array (people that made it through the filter)
+		@return array (schools that made it through the filter)
 	*/
 	function filterIntsLessThan( dataProperty, value ) {
-			var people = [];
+			var schools = [];
 
-			for( var i=0; i < personData.length; i++ ) {
-				var person = personData[i];
-				if( person[dataProperty] > value ) {
-					people.push( person )
+			for( var i=0; i < schoolData.length; i++ ) {
+				var school = schoolData[i];
+				if( school[dataProperty] > value ) {
+					schools.push( school )
 				} else {
-					removePersonMarker( person.id );
+					removeschoolMarker( school.id );
 				}
 			}
-			return people;
+			return schools;
 	}
 
 	// Takes all the filters off
 	function resetFilter() {
 		filter = {
 			followers: 0,
-			college: 0,
+			practice_area: 0,
 			from: 0
 		}
 	}
@@ -267,15 +265,8 @@ $(function() {
 		}
 	});
 
-	$('.followers-select').on('change', function() {
-		myMap.filterCtrl('followers', this.value);
+	$('.practice_area-select').on('change', function() {
+		myMap.filterCtrl('practice_area', this.value);
 	});
 
-	$('.college-select').on('change', function() {
-		myMap.filterCtrl('college', this.value);
-	});
-
-	$('.from-select').on('change', function() {
-		myMap.filterCtrl('from', this.value);
-	});
 });

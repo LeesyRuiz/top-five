@@ -43,13 +43,19 @@ select {
 	width: 96%;
 }
 
-
-
 #map-canvas {
   margin: 0 auto;
   width: 100vw;
   height: 100vh;
 }
+
+.pop-up{
+
+}
+
+
+
+
 /*.filter-container-lg h2 {
   border-bottom: 1px solid #cfcfcf;
   margin: 0 0 10px;
