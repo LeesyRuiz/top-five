@@ -1,0 +1,26 @@
+.scroll-container {
+  /*width: 30vw;*/
+  height: 100vh;
+  /*margin: 3em;*/
+  padding-top: 2em;*/
+  overflow: hidden;
+  top: 20px;
+  left: 30px;
+  position: absolute;
+}
+
+.card {
+  width: 35vw;
+  margin-left: 4em;
+  margin-top: 3em;
+  height: 750px;
+
+ }
+
+.scroll-container:hover, .scroll-container:focus {
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
