@@ -12,8 +12,6 @@ $filter.on('change', function(event) {
 
 var myMap = function() {
 
-
-
 	var	options = {
 		zoom: 5,
 		center: new google.maps.LatLng(38.810821,-95.053711),
@@ -82,7 +80,7 @@ var myMap = function() {
 			// 	'<br>practice_area: ', school.practice_area, '</div></div>'].join('');
 
 
-			var content = ['<div class="header">', school.name,
+			var content = ['<div class="grid">', school.name,
 			'Avvo Rating: ', school.avvo_rating, '<br>Client Rating: ', school.client_rating,
 			'<br>practice_area: ', school.blurb, '</div>'].join('');
 
@@ -278,7 +276,6 @@ $(function() {
 
 	$('.load-btn').on('click', function() {
 		var $this = $(this);
-		// reset everything
 		$('select').val(0);
 		myMap.resetFilter();
 		myMap.loadMarkers();
@@ -290,6 +287,24 @@ $(function() {
 
 	$('.practice_area-select').on('change', function() {
 		myMap.filterCtrl('practice_area', this.value);
+
 	});
+
+});
+
+
+$(document).ready(function(){
+ 	console.log(schoolData);
+
+	var schoolCard = [];
+
+	var school.name = "claire"
+	var school = "clairedngcgvhmd"
+
+
+	var schoolCards = ['<div class="grid">', school.name,
+	'Avvo Rating: ', school.avvo_rating, '<br>Client Rating: ', school.client_rating,
+	'<br>practice_area: ', school.blurb, '</div>'].join('');
+
 
 });
