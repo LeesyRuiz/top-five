@@ -3,7 +3,7 @@
 (function scrollReveal() {
   window.sr = ScrollReveal();
 
-  sr.reveal('.card-box', {
+  sr.reveal('.card-body', {
     duration   : 600,
     distance   : '20px',
     easing     : 'ease-out',
