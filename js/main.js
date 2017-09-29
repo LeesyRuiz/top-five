@@ -270,3 +270,8 @@ $(function() {
 	});
 
 });
+
+$( document ).ready(function() {
+    console.log( schoolData );
+    var vard = "<div>" + schoolname + "/div"
+});
