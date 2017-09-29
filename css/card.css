@@ -10,12 +10,26 @@
 }
 
 .card {
-  width: 35vw;
+  width: 30vw;
   margin-left: 4em;
-  margin-top: 3em;
-  height: 750px;
-
+  margin-top: 4em;
+  height: 680px;
  }
+
+select {
+  box-sizing: border-box;
+   /*line-height: 3em;*/
+   height: 50px;
+   background-color: white;
+   border: 0 !important;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+}
+
+
+  #form-card {
+     border-top: 30px solid #F27760;
+  }
 
 .scroll-container:hover, .scroll-container:focus {
   overflow-y: auto;
@@ -23,4 +37,34 @@
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+  h2 {
+       font-size: calc(1em + 2.5vh);
+      font-family: Futura, sans-serif;
+      /*padding-top: 10%;*/
+       -webkit-font-smoothing: antialiased;
+       font-weight: bold;
+       line-height: 1.3em;
+      text-align: left;
+}
+
+ h3 {
+   font-size: calc(.5em + 1vh);
+  /*font-family: Futura, sans-serif;*/
+  padding-top: 5%;
+   -webkit-font-smoothing: antialiased;
+    line-height: 1.3em;
+  text-align: left;
+}
+
+#pa {
+  font-size: 1.5em;
+ font-family: Futura, sans-serif;
+ /*padding-top: 10%;*/
+  -webkit-font-smoothing: antialiased;
+  /*font-weight: bold;*/
+  /*line-height: 1.3em;*/
+  margin-left: 7px;
+ text-align: left;
 }

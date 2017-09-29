@@ -65,12 +65,10 @@ var myMap = function() {
 			markers[markerId] = marker;
 			markerList.push(person.id);
 
-			if( j > 10 ) j = 1; // for lorempixel, the thumbnail image
-			var content = ['<div class="iw"><img src="http://lorempixel.com/90/90/people/',
-				j, '" width="90" height="90">', '<div class="iw-text"><strong>', person.name,
+ 			var content = ['<div class="iw"><div class="iw-text"><strong>', person.name,
 				'</strong><br>Age: ', person.age, '<br>Followers: ', person.followers,
 				'<br>College: ', person.college, '</div></div>'].join('');
-			j++; // lorempixel
+
 
 			google.maps.event.addListener(marker, 'click', (function (marker, content) {
 				return function() {
